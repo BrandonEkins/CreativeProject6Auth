@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Sign In Example</title>
+
+    <!-- Material Design Theming -->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+    <link rel="stylesheet" href="main.css">
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCymnnPfscnllA0rEijIUs5S1VxBlDXsuI",
+            authDomain: "creativeproject6-941c7.firebaseapp.com",
+            databaseURL: "https://creativeproject6-941c7.firebaseio.com",
+            storageBucket: "creativeproject6-941c7.appspot.com",
+            messagingSenderId: "397881917003"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+        function toggleSignIn() {
+            if (!firebase.auth().currentUser) {
+                var provider = new firebase.auth.GoogleAuthProvider(); // creates provider
+                firebase.auth().signInWithRedirect(provider);
+
+            } else {
+                firebase.auth().signOut().then(function() {
+                    // Sign-out successful.
+                }, function(error) {
+                    // An error happened.
+                });
+            }
+        }
+
+        function initApp() {
+            firebase.auth().getRedirectResult().then(function(result) {
+                if (result.credential) {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    var token = result.credential.accessToken;
+                    // ...
+                }
+                // The signed-in user info.
+                var user = result.user;
+            }).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+            });
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    var displayName = user.displayName;
+                }
+            });
+        }
+        window.onload = function() {
+            initApp();
+        };
+    </script>
+
+</head>
+
+<body>
+    <button onclick="toggleSignIn()">Sign In</button>
+</body>
