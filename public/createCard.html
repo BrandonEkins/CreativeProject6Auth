@@ -3,7 +3,7 @@
 <head>
     <meta charset=utf-8 />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Sign In Example</title>
+    <title>Merry Christmas</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/style.css"></link>
@@ -59,10 +59,24 @@
             </ul>
         </div>
     </nav>
-    <div class="container" style="background-color: white; height: 900px; width: 716px;border: grey solid 2px;">
-        <div style="width: 1px; border: dashed 1px grey; height: 900px; margin-left: 343px; margin-top: -2px"></div>
-        <div style="height: 1px; border: dashed 1px grey; width: 716px; margin-top: -448px; margin-left: -16px;"></div>
-        <img style="height: 450px; width: 358px; margin-left: -15px; margin-top: -473px;" src="images/cat1.jpg">
+    <div class="container" style="width:600px">
+        <div class="form-group">
+            <label for="cg">Cover Greeting</label>
+            <input ng-model="card.greeting" class="form-control" ng-model="name" id="cg">
+
+            <label for="ct">Card Text</label>
+            <textarea ng-model="card.text" class="form-control" rows="5" id="ct"></textarea>
+
+            <label for="sel1">Select list (select one):</label>
+            <select ng-model="card.pic" class="form-control" id="sel1">
+                <option value="images/cat1.jpg">1</option>
+                <option value="images/cat2.jpg">2</option>
+                <option value="images/cat3.jpg">3</option>
+                <option value="images/cat4.jpg">4</option>
+            </select>
+
+            <button class="btn btn-primary" ng-click="createCard()">Create Card!</button>
+        </div>
 
     </div>
 
