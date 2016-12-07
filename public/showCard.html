@@ -43,9 +43,9 @@
                 <a class="navbar-brand" href="#">Christmas Card Maker</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="login.html">Home</a></li>
+                <li><a href="login.html">Home</a></li>
                 <li ng-if="user"><a href="createCard.html">Create Card</a></li>
-                <li ng-if="user">
+                <li class="active" ng-if="user">
                     <a href="showCard.html">Show Card</a>
                 </li>
 
@@ -57,10 +57,12 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-        <div class="text-info text-center title">
-            The Kitten Christmas Card Maker
-
-        </div>
+    <div class="container" style="background-color: white; height: 900px; width: 716px;border: grey solid 2px;">
+        <div style="width: 1px; border: dashed 1px grey; height: 900px; margin-left: 343px; margin-top: -2px"></div>
+        <div style="height: 1px; border: dashed 1px grey; width: 716px; margin-top: -448px; margin-left: -16px;"></div>
+        <img style="height: 450px; width: 358px; margin-left: -15px; margin-top: -473px;" src="images/cat1.jpg">
+        <b style="color:white; font-size:20px; margin-top:-400px">Meowy Christmas!</b>
+        <p class="txtUpsideDown">test</p>
     </div>
+
 </body>
