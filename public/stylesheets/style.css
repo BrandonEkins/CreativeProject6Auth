@@ -27,4 +27,14 @@ a {
     -webkit-transform: rotate(-180deg);
     /* Safari 3.1+, Chrome */
     position: absolute;
+    width: 328px;
+    margin-left: -164px;
+}
+
+.textBox {
+    margin-top: 423px;
+    text-align: center;
+    width: 328px;
+    margin-left: 358px;
+    height: 313px;
 }

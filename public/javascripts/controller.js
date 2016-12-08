@@ -33,7 +33,17 @@ app.controller("authController", function($scope, $firebaseAuth, $cookies, $cook
     }
 
     $scope.createCard = function() {
+
         $cookies.put('card', JSON.stringify($scope.card));
         $window.location('showCard.html');
     }
+    $scope.farewell = [
+        "May your heart be warmed over a christmas fire this season just like chestnuts,",
+        "May the bells of Christmas always ring in your soul,",
+        "May you always have company this holiday season with kittens purring at your feet,",
+        "Best wishes Christmas fishes,",
+        "May you find true love under the mistletoe this season,",
+        "May the mistletoe steal your heart away,",
+        "From a mean one, \n Mr. Grinch. \n aka, "
+    ];
 });
