@@ -63,10 +63,10 @@
         <div class="form-group">
             <label for="cg">Cover Greeting</label>
             <input ng-model="card.greeting" class="form-control" ng-model="name" id="cg">
-
+            <br>
             <label for="ct">Card Text</label>
             <textarea ng-model="card.text" class="form-control" rows="5" id="ct"></textarea>
-
+            <br>
             <label for="sel1">Image(sorry we are too good for custom images here)</label>
             <select ng-model="card.pic" class="form-control" id="sel1">
                 <option value="images/cat1.jpg">1</option>
@@ -74,10 +74,13 @@
                 <option value="images/cat3.jpg">3</option>
                 <option value="images/cat4.jpg">4</option>
             </select>
+            <br>
             <label for="sel1">Signature</label>
             <select ng-model="card.farewell" class="form-control">
                 <option ng-repeat="item in farewell" value="{{item}}">{{item}}</option>
             </select>
+            <br>
+
             <button class="btn btn-primary" ng-click="createCard()">Create Card!</button>
         </div>
 

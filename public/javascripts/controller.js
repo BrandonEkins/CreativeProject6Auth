@@ -1,5 +1,5 @@
 var app = angular.module("authApp", ["firebase", "ngCookies"]);
-app.controller("authController", function($scope, $firebaseAuth, $cookies, $cookieStore) {
+app.controller("authController", function($scope, $firebaseAuth, $cookies, $cookieStore, $window) {
     var auth = $firebaseAuth();
     //pulls cookies
     if ($cookies.get('user') != undefined)
@@ -18,6 +18,8 @@ app.controller("authController", function($scope, $firebaseAuth, $cookies, $cook
             $scope.user = user;
             console.log("Signed in as:", $scope.user.user.displayName);
             $cookies.put('user', JSON.stringify($scope.user));
+            var landingUrl = "http://" + $window.location.host + "/createCard.html";
+            $window.location.href = landingUrl;
         }).catch(function(error) {
             console.log("Authentication failed:", error);
         });
@@ -27,6 +29,9 @@ app.controller("authController", function($scope, $firebaseAuth, $cookies, $cook
             console.log("Signed Out");
             $scope.user = null;
             $cookies.remove('user');
+            $cookies.remove('card');
+            var landingUrl = "http://" + $window.location.host + "/login.html";
+            $window.location.href = landingUrl;
         }, function(error) {
             console.log(error);
         });
@@ -35,7 +40,8 @@ app.controller("authController", function($scope, $firebaseAuth, $cookies, $cook
     $scope.createCard = function() {
 
         $cookies.put('card', JSON.stringify($scope.card));
-        $window.location('showCard.html');
+        var landingUrl = "http://" + $window.location.host + "/showCard.html";
+        $window.location.href = landingUrl;
     }
     $scope.farewell = [
         "May your heart be warmed over a christmas fire this season just like chestnuts,",
