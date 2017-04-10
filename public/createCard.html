@@ -3,7 +3,7 @@
 <head>
     <meta charset=utf-8 />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merry Christmas</title>
+    <title>Classic Cards</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/style.css"></link>
@@ -36,11 +36,11 @@
 </head>
 
 
-<body ng-app="authApp" ng-controller="authController" background="/images/snowflakeBackground.png">
+<body ng-app="authApp" ng-controller="authController" background="/images/clBackground.jpg">
     <nav class="navbar navbar-default" style="">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Christmas Card Maker</a>
+                <a class="navbar-brand" href="#">Classic Card Maker</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="login.html">Home</a></li>
@@ -59,7 +59,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container" style="width:600px">
+    <div class="container well" style="width:600px">
         <div class="form-group">
             <label for="cg">Cover Greeting</label>
             <input ng-model="card.greeting" class="form-control" ng-model="name" id="cg">
@@ -67,7 +67,7 @@
             <label for="ct">Card Text</label>
             <textarea ng-model="card.text" class="form-control" rows="5" id="ct"></textarea>
             <br>
-            <label for="sel1">Image(sorry we are too good for custom images here)</label>
+            <label for="sel1">Pick an Image!</label>
             <select ng-model="card.pic" class="form-control" id="sel1">
                 <option value="images/cat1.jpg">1</option>
                 <option value="images/cat2.jpg">2</option>
@@ -76,9 +76,7 @@
             </select>
             <br>
             <label for="sel1">Signature</label>
-            <select ng-model="card.farewell" class="form-control">
-                <option ng-repeat="item in farewell" value="{{item}}">{{item}}</option>
-            </select>
+            <input ng-model="card.farewell" class="form-control" id="sel1">
             <br>
 
             <button class="btn btn-primary" ng-click="createCard()">Create Card!</button>
